@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export default function NoteItem({ note, onDelete }) {
   return (
-    <div className="bg-gray-100 p-4 rounded-md shadow-md my-2 mx-2 sm:mx-4 md:mx-6 lg:mx-8 xl:mx-10">
+    <div className="bg-gray-100 p-4 rounded-md shadow-md my-2 mx-2 sm:mx-4 md:mx-6 lg:mx-8 xl:mx-4">
       <div className="flex justify-between items-center">
         <div className="flex-1 pr-4">
           <h2 className="text-xl font-semibold text-gray-800">{note.title}</h2>
