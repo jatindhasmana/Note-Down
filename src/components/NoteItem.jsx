@@ -1,5 +1,3 @@
-// NoteItem.jsx
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function NoteItem({ note, onDelete }) {
@@ -12,7 +10,7 @@ export default function NoteItem({ note, onDelete }) {
           <p className="text-gray-400 text-sm">{new Date(note.timestamp).toLocaleString()}</p>
         </div>
         <div className="flex-shrink-0 space-x-2">
-          <Link to={{ pathname: `/edit/${note.id}`, state: { note } }}>
+          <Link to="/edit" state={{note}}>
             <button className="px-4 py-2 bg-blue-500 text-white rounded-md">View</button>
           </Link>
           <button
