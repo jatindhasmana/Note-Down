@@ -1,23 +1,27 @@
-import { Link } from "react-router-dom";
+// NoteItem.jsx
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function NoteItem({ note, onDelete }) {
   return (
-    <div className="bg-white shadow-md rounded-lg p-4 mb-4 flex flex-col space-y-2">
-      <p className="text-xl font-semibold text-gray-800">{note.title.toUpperCase()}</p>
-      <p className="text-gray-600">{note.content.substring(0, 100)}...</p>
-      <p className="text-xs text-gray-500">{new Date(note.timestamp).toLocaleString()}</p>
-      <div className="flex space-x-4">
-        <Link to="/edit" state={{ note }}>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-all duration-300">
-            View
+    <div className="bg-gray-100 p-4 rounded-md shadow-md my-2 mx-2 sm:mx-4 md:mx-6 lg:mx-8 xl:mx-10">
+      <div className="flex justify-between items-center">
+        <div className="flex-1 pr-4">
+          <h2 className="text-xl font-semibold text-gray-800">{note.title}</h2>
+          <p className="text-gray-600">{note.content.substring(0, 100)}...</p>
+          <p className="text-gray-400 text-sm">{new Date(note.timestamp).toLocaleString()}</p>
+        </div>
+        <div className="flex-shrink-0 space-x-2">
+          <Link to={{ pathname: `/edit/${note.id}`, state: { note } }}>
+            <button className="px-4 py-2 bg-blue-500 text-white rounded-md">View</button>
+          </Link>
+          <button
+            onClick={() => onDelete(note.id)}
+            className="px-4 py-2 bg-red-500 text-white rounded-md"
+          >
+            Delete
           </button>
-        </Link>
-        <button
-          onClick={() => onDelete(note.id)}
-          className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-all duration-300"
-        >
-          Delete
-        </button>
+        </div>
       </div>
     </div>
   );

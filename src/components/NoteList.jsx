@@ -27,7 +27,7 @@ export default function NoteList() {
 
   return (
     <div className="p-4 min-h-screen">
-      <SearchBar setSearchText={setSearchText} />
+      {currentPage === 1 && <SearchBar setSearchText={setSearchText} />}
       {filteredNotes.length > 0 ? (
         <>
           {paginatedNotes
